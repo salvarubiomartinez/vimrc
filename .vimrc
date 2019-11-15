@@ -25,7 +25,7 @@ let g:ycm_semantic_triggers = {
 let mapleader = "\<Space>"
 :imap fd <Esc>
 :nmap <Leader>bb :Buffer <Enter>
-:nmap <Leader>ff :Files <Enter>
+:nmap <Leader>ff :GFiles <Enter>
 set t_Co=256
 set ballooneval
 autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
