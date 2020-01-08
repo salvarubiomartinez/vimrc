@@ -29,5 +29,7 @@ let mapleader = "\<Space>"
 set t_Co=256
 set ballooneval
 autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
-set number
 set autoread
+
+"let g:ale_linters = { 'elm': ['elm_ls'] }
+
