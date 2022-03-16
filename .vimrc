@@ -1,3 +1,17 @@
+
+" Change tabs to 4 spaces
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+:set autoread
+
+" Automatically indent when starting new lines in code blocks
+set autoindent
+
+" Add line numbers
+"set number
+
 call plug#begin()
 "	Plug 'elmcast/elm-vim'
 	Plug 'dense-analysis/ale'
@@ -18,6 +32,8 @@ call plug#begin()
 	Plug 'roxma/vim-hug-neovim-rpc'
 	Plug 'roxma/nvim-yarp'
 	Plug 'tpope/vim-dadbod'
+    Plug 'tpope/vim-obsession'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 "let g:syntastic_always_populate_loc_list = 1
@@ -33,7 +49,7 @@ let mapleader = "\<Space>"
 :nmap <Leader>bb :Buffer <Enter>
 :nmap <Leader>ff :GFiles <Enter>
 set t_Co=256
-set ballooneval
+"set ballooneval
 "autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 set autoread
 nmap <silent> <F3> :cprev<CR>
@@ -73,6 +89,12 @@ let g:OmniSharp_selector_findusages = 'fzf'
 autocmd FileType cs map <buffer> <c-]> :OmniSharpFindImplementations<CR>
 autocmd FileType cs nmap <silent> <leader>rn <Plug>(omnisharp_rename)
 
+let g:gruvbox_transparent_bg = '1'
+autocmd vimenter * ++nested colorscheme gruvbox
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+"autocmd VimEnter * hi Normal guibg=NONE ctrembg=NONE
+set background=dark    " Setting dark mode
+
 "databasae connection
-"let g:db = "sqlserver://'sa':Vinardell11!@localhost:1433\\SQLEXPRESS/GDB_CPQ_DEV"
-let g:db = 'sqlserver://localhost:1433;Database=GSB_CPQ_DEV;user=sa;password=Vinardell11!;'
+let password = split(system("pass between"), '\n')[0]
+let g:db = 'sqlserver://localhost:1433;Database=GSB_CPQ_DEV;user=sa;password=' . password . ';'
